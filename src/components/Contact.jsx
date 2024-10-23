@@ -1,15 +1,12 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaRegEnvelope } from 'react-icons/fa';
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-
-// 2dfEjHvyUokGKUZjV
-// template_8svwbqm
-// service_2293nra
 
 const Contact = () => {
   const formRef = useRef();
@@ -52,7 +49,6 @@ const Contact = () => {
         () => {
           setLoading(false);
           alert("Thank you. I will get back to you as soon as possible.");
-
           setForm({
             name: "",
             email: "",
@@ -62,16 +58,13 @@ const Contact = () => {
         (error) => {
           setLoading(false);
           console.error(error);
-
           alert("Ahh, something went wrong. Please try again.");
         }
       );
   };
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-    >
+    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
@@ -96,7 +89,7 @@ const Contact = () => {
             />
           </label>
           <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your email</span>
+            <span className='text-white font-medium mb-4'>Your Email</span>
             <input
               type='email'
               name='email'
@@ -125,6 +118,27 @@ const Contact = () => {
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
+
+        <div className="social-links mt-6">
+          <h4 className="text-white font-medium mb-4">Connect with me:</h4>
+          <div className="flex gap-4">
+            <a href="mailto:ilusayyad221@gmail.com" target="_blank" rel="noopener noreferrer">
+              <FaRegEnvelope className="text-white text-2xl" />
+            </a>
+            <a href="https://www.instagram.com/ilu_221" target="_blank" rel="noopener noreferrer">
+              <FaInstagram className="text-white text-2xl" />
+            </a>
+            <a href="https://github.com/printilu22" target="_blank" rel="noopener noreferrer">
+              <FaGithub className="text-white text-2xl" />
+            </a>
+            <a href="https://www.linkedin.com/in/iliyas221" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin className="text-white text-2xl" />
+            </a>
+            <a href="https://x.com/IliyasSayy221" target="_blank" rel="noopener noreferrer">
+              <FaTwitter className="text-white text-2xl" />
+            </a>
+          </div>
+        </div>
       </motion.div>
 
       <motion.div
